@@ -37,6 +37,9 @@ def parseLogs():
     except KeyboardInterrupt as e:
         report(fileSize, statusCodes)
         raise
+    except BrokenPipeError:
+        # Handle the BrokenPipeError explicitly
+        pass
 
 
 def report(fileSize, statusCodes):
